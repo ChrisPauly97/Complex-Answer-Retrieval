@@ -1,9 +1,9 @@
 ## Build the Java Server
- 1. Navigate to 2196151p/Java_API/Car-Grpc
+ 1. Navigate to Java_API/Car-Grpc
  2. Run mvn clean install
  3. Install proto compiler for your platform, located at -- https://github.com/protocolbuffers/protobuf/releases
  4. Run the proto compiler using the command: 
-     * protoc --proto_path=/path/to/proto/queryEngine.proto --java_out=/.../2196151p/Java_API/Car-Grpc/target / /path/to/proto/queryEngine.proto
+     * protoc --proto_path=/path/to/proto/queryEngine.proto --java_out=/.../Java_API/Car-Grpc/target / /path/to/proto/queryEngine.proto
 
 ## Running the Java Server
 * The index file is required to run the Java Server
@@ -11,7 +11,7 @@
 * https://console.cloud.google.com/storage/browser/2196151p-project-files
 1. The Server can be run by running the Jar-With-Dependencies file.
     * This file takes the index path and all.tree.qrels path as arguments
-    * java -jar cargrpc-1.0-SNAPSHOT-jar-with-dependencies.jar "/path/to/index/" "/.../2196151p/Java_API/Car-Grpc/src/main/resources/all.tree.qrels"
+    * java -jar cargrpc-1.0-SNAPSHOT-jar-with-dependencies.jar "/path/to/index/" "/.../Java_API/Car-Grpc/src/main/resources/all.tree.qrels"
 
 ## Running the Flask Application
 The compiled proto files for the Flask Webapp are already included in the zip.
