@@ -1,0 +1,109 @@
+.hidden>div {
+	display:none;
+}
+
+.visible>div {
+	display:block;
+}
+
+#paragraphGroup {
+	-webkit-background-clip: padding-box; /* for Safari */
+	background-clip: padding-box;
+	padding: 10px 10px 10px 10px;
+    margin: 1%;
+}
+#simGroup {
+	-webkit-background-clip: padding-box; /* for Safari */
+	background-clip: padding-box;
+	padding: 10px 10px 10px 10px;
+    margin: 1%;
+}
+
+#evalGroup {
+	-webkit-background-clip: padding-box; /* for Safari */
+	background-clip: padding-box;
+	padding: 10px 10px 10px 10px;
+    margin: 1%;
+}
+
+#flash {
+	text-align: center;
+	width: 50%;
+	margin-left: 25%;
+}
+
+#text {
+	color:black;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 1px 0;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+/*td {*/
+    /*padding: 10px 0;*/
+/*}*/
+
+.column {
+	float: left;
+	width: 49%;
+	text-align: center;
+}
+.columnRight {
+	float: left;
+	width: 49%;
+	text-align: center;
+}
+.columnSim {
+	float: right;
+	width: 49%;
+	text-align: center;
+}
+
+/* Clear floats after the columns */
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.text_container {
+	width: 100%;
+	visibility: visible;
+}
+
+#content {
+	width: 50%;
+	margin-left: 50%;
+}
+
+.queryLink{
+	color: green;
+}
+
+.qrelMatch{
+	color: hotpink;
+}
+
+.paraLink{
+	color: indianred;
+}
+
+.expandedQueryLink{
+	color: green;
+}
+
+.matchedWord{
+	color: indianred;
+}
+
+.unmatchedWord{
+	color: red;
+}
+
+.queryWord {
+	color: green;
+}

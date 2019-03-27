@@ -1,0 +1,9 @@
+sqlalchemy
+google
+protobuf
+Flask==0.12.2
+python-dotenv==0.7.1
+flask_sqlalchemy
+flask_wtf
+wtforms
+grpcio

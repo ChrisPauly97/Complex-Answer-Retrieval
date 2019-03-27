@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% extends "base.html" %}
+{% block title %}{{title}}{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.text_container').addClass("hidden");
+
+            $('.text_container').click(function() {
+                let $this = $(this);
+
+                if ($this.hasClass("hidden")) {
+                    $(this).removeClass("hidden").addClass("visible");
+                } else {
+                    $(this).removeClass("visible").addClass("hidden");
+                }
+            });
+        });
+    </script>
+{% endblock %}
+{% block content %}
+    <div class="content column" id="text">
+        <h4>Ranking queries run for Original: <br>{{original[2] | safe}}</h4>
+        {% for query in response %}
+        {{ query[5] | safe }}<br>
+        {% endfor %}
+    </div>
+
+    <div class="content column" id="text">
+                <div class="text_container">
+                    <h4>{{count}} good words found.</h4>
+                    <table>
+                        <tr>
+                            <th>Word</th>
+                            <th>MAP</th>
+                            <th>NDCG</th>
+                            <th>R-Precision</th>
+                            <th>Good Word</th>
+                        </tr>
+                        {% for query in response %}
+                            </tr>
+                            <td>{{ query[5].split(" ")[-2]}}</td></tf>
+                            {% for x in query[1].split(" ") %}
+                                <td>{{x}}</td>
+                            {% endfor %}
+                            <td>{{ good_word_map.get(query[5].split(" ")[-2]) }}</td>
+                        </tr>
+                        {% endfor %}
+
+                    </table>
+                </div>
+        </div>
+
+
+{% endblock %}

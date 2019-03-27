@@ -1,0 +1,212 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.carapi</groupId>
+  <artifactId>cargrpc</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>cargrpc</name>
+  <url>http://maven.apache.org</url>
+
+
+  <properties>
+    <compileSource>1.8</compileSource>
+  </properties>
+  <repositories>
+    <repository>
+     <id>jitpack.io</id>
+     <url>https://jitpack.io</url>
+ </repository>
+</repositories>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.grpc</groupId>
+      <artifactId>grpc-all</artifactId>
+      <version>0.9.0</version>
+    </dependency>
+    <dependency>
+   <groupId>org.eclipse.jetty</groupId>
+   <artifactId>jetty-server</artifactId>
+   <version>9.4.2.v20170220</version>
+ </dependency>
+ <dependency>
+   <groupId>net.sf.trove4j</groupId>
+   <artifactId>trove4j</artifactId>
+   <version>3.0.3</version>
+ </dependency>
+
+   <dependency>
+       <groupId>org.lemurproject.galago</groupId>
+       <artifactId>core</artifactId>
+       <version>3.14</version>
+   </dependency>
+   <dependency>
+       <groupId>com.fasterxml.jackson.core</groupId>
+       <artifactId>jackson-core</artifactId>
+       <version>2.9.7</version>
+   </dependency>
+   <dependency>
+       <groupId>com.fasterxml</groupId>
+       <artifactId>jackson-xml-databind</artifactId>
+       <version>0.6.2</version>
+   </dependency>
+   <dependency>
+       <groupId>com.github.TREMA-UNH</groupId>
+       <artifactId>trec-car-tools-java</artifactId>
+       <version>13</version>
+   </dependency>
+   <dependency>
+       <groupId>com.fasterxml.jackson.core</groupId>
+       <artifactId>jackson-databind</artifactId>
+       <version>2.9.7</version>
+   </dependency>
+   <dependency>
+       <groupId>junit</groupId>
+       <artifactId>junit</artifactId>
+       <version>RELEASE</version>
+       <scope>test</scope>
+   </dependency>
+   <dependency>
+       <groupId>org.junit.jupiter</groupId>
+       <artifactId>junit-jupiter-api</artifactId>
+       <version>RELEASE</version>
+       <scope>test</scope>
+  </dependency>
+      <dependency>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+          <version>4.13-beta-1</version>
+          <scope>compile</scope>
+      </dependency>
+      <dependency>
+          <groupId>com.google.protobuf</groupId>
+          <artifactId>protobuf-java</artifactId>
+          <version>3.6.1</version>
+      </dependency>
+      <dependency>
+          <groupId>io.grpc</groupId>
+          <artifactId>grpc-protobuf</artifactId>
+          <version>1.17.0</version>
+      </dependency>
+      <dependency>
+          <groupId>io.grpc</groupId>
+          <artifactId>grpc-core</artifactId>
+          <version>1.17.0</version>
+      </dependency>
+      <dependency>
+          <groupId>io.grpc</groupId>
+          <artifactId>grpc-core</artifactId>
+          <version>1.17.0</version>
+      </dependency>
+      <dependency>
+          <groupId>io.grpc</groupId>
+          <artifactId>grpc-stub</artifactId>
+          <version>1.17.0</version>
+      </dependency>
+  </dependencies>
+
+
+  <pluginRepositories>
+    <pluginRepository>
+      <releases>
+	<updatePolicy>never</updatePolicy>
+      </releases>
+      <snapshots>
+	<enabled>false</enabled>
+      </snapshots>
+      <id>central</id>
+      <name>Central Repository</name>
+      <url>https://repo.maven.apache.org/maven2</url>
+    </pluginRepository>
+    <pluginRepository>
+      <id>protoc-plugin</id>
+      <url>https://dl.bintray.com/sergei-ivanov/maven/</url>
+    </pluginRepository>
+  </pluginRepositories>
+  <build>
+    <extensions>
+      <extension>
+	<groupId>kr.motd.maven</groupId>
+	<artifactId>os-maven-plugin</artifactId>
+	<version>1.5.0.Final</version>
+      </extension>
+
+    </extensions>
+    <plugins>
+      <plugin>
+	<groupId>com.google.protobuf.tools</groupId>
+	<artifactId>maven-protoc-plugin</artifactId>
+	<version>0.4.2</version>
+	<configuration>
+	  <!--
+	      The version of protoc must match protobuf-java. If you don't depend on
+	      protobuf-java directly, you will be transitively depending on the
+	      protobuf-java version that grpc depends on.
+	  -->
+	  <protocArtifact>com.google.protobuf:protoc:3.0.0-beta-1:exe:${os.detected.classifier}</protocArtifact>
+	  <pluginId>grpc-java</pluginId>
+	  <pluginArtifact>io.grpc:protoc-gen-grpc-java:0.9.0:exe:${os.detected.classifier}</pluginArtifact>
+	</configuration>
+	<executions>
+	  <execution>
+	    <goals>
+	      <goal>compile</goal>
+	      <goal>compile-custom</goal>
+	    </goals>
+	  </execution>
+	</executions>
+      </plugin>
+
+
+      <plugin>
+	<groupId>org.apache.maven.plugins</groupId>
+	<artifactId>maven-compiler-plugin</artifactId>
+	<version>3.2</version>
+	<configuration>
+	  <source>${compileSource}</source>
+	  <target>${compileSource}</target>
+	  <showDeprecation>true</showDeprecation>
+	  <showWarnings>true</showWarnings>
+	  <encoding>UTF-8</encoding>
+	</configuration>
+      </plugin>
+
+
+      <plugin>
+	<groupId>org.apache.maven.plugins</groupId>
+	<artifactId>maven-assembly-plugin</artifactId>
+	<version>2.4</version>
+	<configuration>
+	  <archive>
+	    <manifest>
+	      <mainClass>com.carapi.queryEngine.QueryEngineServer</mainClass>
+	    </manifest>
+	  </archive>
+	  <descriptorRefs>
+	    <descriptorRef>jar-with-dependencies</descriptorRef>
+	  </descriptorRefs>
+	</configuration>
+	<executions>
+	  <execution>
+	    <id>make-jar-with-dependencies</id>
+	    <phase>package</phase>
+	    <goals>
+	      <goal>single</goal>
+	    </goals>
+	  </execution>
+	</executions>
+      </plugin>
+
+
+    </plugins>
+  </build>
+
+
+</project>
